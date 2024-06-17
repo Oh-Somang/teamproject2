@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bow Data</title>
+    <title>강아지 사료</title>
+    <link rel="stylesheet" href="help_style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap"
+      rel="stylesheet"
+    />
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
@@ -16,20 +22,13 @@
       integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="css/dog-style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body>
     <header>
       <nav class="navbar navbar-light bg-white" style="padding: 0.5%">
         <div class="container" style="display: block; text-align: center">
           <a class="navbar-brand" href="/">
-            <img src="/img/bowdatalogo.png" alt="bowdatalogo" width="90" />
+            <img src="/img/bowdatalogo.jpg" alt="bowdatalogo" width="90" />
           </a>
         </div>
       </nav>
@@ -95,40 +94,86 @@
           </div>
         </div>
       </nav>
-      <hr />
+      <hr style="margin-top: 0px" />
     </header>
-
-    <div class="layout">
-      <article>
-        <div class="flexbox">
-          <div class="item">
-            <img src="./img/moltise.png" alt="말티즈 사진" />
-          </div>
-          <div class="item">
-            <h2>말티즈 Maltese</h2>
-            <p>
-              작은 체구와 깨끗해 보이는 흰 털이 특징인 말티즈는 남유럽 지방의
-              섬나라인 몰타 출신 소형견입니다. 작고 귀여운 외모로 한국인이 가장
-              많이 키우는 견종 조사에서 부동의 1위를 차지하고 있습니다.
-            </p>
-            <a
-              class="youtube"
-              href="https://www.youtube.com/watch?v=9xFqDi0HOq8"
-              target="_blank"
-            >
-              ▶ 견종백과 말티즈 유튜브 보기</a
-            >
-          </div>
-        </div>
-      </article>
+    <div class="main_container">
+      <h1>
+        [로얄캐닌] 강아지사료 미니 어덜트 8+ 8세이상 시니어 8kg
+        <span class="badge bg-danger">Best</span>
+        <span class="badge bg-success"> NEW</span>
+      </h1>
+      <div class="product-image">
+        <img
+          id="product-image"
+          src="img/강아지사료.jpg"
+          class="img-fluid rounded"
+        />
+      </div>
+      <div class="description">
+        <p>
+          생후 8년 이후부터 12년까지 노령 초소형견(성견 시 체중 4kg 미만)의
+          건강한 노화 관리에 도움을 주는 <br />영양맞춤사료
+        </p>
+      </div>
+      <div class="delivery">
+        <p><strong>배송 방법:</strong> 택배</p>
+        <p><strong>배송비:</strong> 무료 (30,000원 이상 무료배송)</p>
+      </div>
+      <div class="options">
+        <label for="number">갯수</label>
+        <select id="number" onchange="updatePrice_feed()">
+          <option value="1">1개 (92,090원)</option>
+          <option value="3">3개 (262,457원 - 5% 할인)</option>
+          <option value="5">5개 (414,405원 - 10% 할인)</option>
+        </select>
+      </div>
+      <div class="total-price">
+        <span>총 상품금액: </span>
+        <span class="price" id="total-price">92,090원</span>
+      </div>
+      <div class="buttons">
+        <button
+          class="buy-btn"
+          onclick="alert('구매 기능은 아직 구현되지 않았습니다.');"
+        >
+          구매하기
+        </button>
+        <a href="cart.html" class="cart-btn" onclick="addToCart_feed()"
+          >장바구니</a
+        >
+      </div>
     </div>
-
-    <section id="boxes"></section>
-
     <footer>
       <p>Copyright &copy; 2024, Made by TEAM "Bow Data"<br /></p>
     </footer>
+    <script>
+      function addToCart_feed() {
+        var number = document.getElementById('number').value
+        var priceText = document.getElementById('total-price').textContent
+        var price = parseInt(priceText.replace(/[^\d]/g, ''))
 
-    <script src="./dogjs/moltise.js"></script>
+        localStorage.setItem('Number_feed', number)
+        localStorage.setItem('Price_feed', price)
+
+        console.log('장바구니에 추가됨 - 갯수:', number, '가격:', price)
+        alert('장바구니에 상품이 추가되었습니다.')
+      }
+
+      function updatePrice_feed() {
+        var number = parseInt(document.getElementById('number').value)
+        var price = 92090 // 기본 가격
+
+        if (number === 1) {
+          price = 92090
+        } else if (number === 3) {
+          price = 262457
+        } else if (number === 5) {
+          price = 414405
+        }
+
+        document.getElementById('total-price').textContent =
+          price.toLocaleString() + '원'
+      }
+    </script>
   </body>
 </html>

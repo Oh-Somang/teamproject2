@@ -3,6 +3,13 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* 다크모드 */
+
+body.dark-mode {
+  background-color: rgb(35, 35, 35);
+  color: rgb(226, 226, 226);
+}
+
 p {
   text-align: center;
 }
@@ -61,6 +68,25 @@ footer {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* 다크모드 */
+header.dark-mode {
+  background-color: rgb(115, 115, 115);
+  color: white;
+}
+
+footer.dark-mode {
+  background-color: rgb(15, 15, 15);
+  color: white;
+}
+
+.icon {
+  position: fixed;
+  top: 858px;
+  right: 20px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   #boxes .box {
     float: none;
@@ -75,25 +101,4 @@ footer {
     text-align: center;
     width: 95%;
   }
-}
-
-.icon {
-  position: fixed;
-  top: 858px;
-  right: 20px;
-  font-size: 30px;
-  cursor: pointer;
-}
-
-/* 다크모드 */
-
-body.dark-mode {
-  background-color: rgb(61, 61, 61);
-  color: white;
-}
-
-header.dark-mode,
-footer.dark-mode {
-  background-color: rgb(61, 61, 61);
-  color: white;
 }
