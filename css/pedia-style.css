@@ -1,5 +1,6 @@
 body {
   font-family: 'Love Ya Like A Sister', cursive;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 p {
@@ -40,6 +41,7 @@ p {
 
 header {
   margin-bottom: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .navbar-brand img {
@@ -56,6 +58,7 @@ footer {
   padding: 20px 0;
   background-color: #f8f9fa;
   clear: both;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 @media (max-width: 768px) {
@@ -72,4 +75,25 @@ footer {
     text-align: center;
     width: 95%;
   }
+}
+
+.icon {
+  position: fixed;
+  top: 858px;
+  right: 20px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* 다크모드 */
+
+body.dark-mode {
+  background-color: rgb(61, 61, 61);
+  color: white;
+}
+
+header.dark-mode,
+footer.dark-mode {
+  background-color: rgb(61, 61, 61);
+  color: white;
 }

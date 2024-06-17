@@ -179,3 +179,7 @@ footer {
 .accordion-content.active {
   display: block;
 }
+
+.quiz-item {
+  margin-bottom: 30px;
+}
