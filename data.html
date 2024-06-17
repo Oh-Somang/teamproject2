@@ -99,6 +99,14 @@
       <p>반려견과 관련된 상식과 서적, 유튜브를 소개합니다.</p>
     </section>
     <div class="button-container">
+      <button class="tab-link" onclick="changeContent(event, 'quiz')">
+        Quiz
+      </button>
+      <div id="quiz" class="tab-content">
+        <h3 style="margin-bottom: 30px">관련상식 퀴즈</h3>
+        <div id="quiz-container"></div>
+        <button onclick="submitQuiz()">제출</button>
+      </div>
       <button class="tab-link" onclick="changeContent(event, 'usage')">
         관련상식
       </button>
@@ -197,6 +205,18 @@
     <script src="ac.js"></script>
 
     <div id="usage2" class="tab-content">
+      <select id="sort-books" onchange="sortBooks()">
+        <option value="basic"></option>
+        <option value="price-lo">가격낮은순</option>
+        <option value="price-hi">가격높은순</option>
+      </select>
+      <input
+        type="text"
+        id="book-search"
+        placeholder="도서 검색"
+        onkeyup="filterBooks()"
+      />
+
       <div class="book">
         <a href="https://product.kyobobook.co.kr/detail/S000001974013">
           <img src="../img/book1.jpg" alt="도서 1 표지" />
