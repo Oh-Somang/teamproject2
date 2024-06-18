@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
       {
           img: "/img/homehome.jpg",
           title: "What is 'Bow Data'?",
-          description: "강아지의 종류 및 특징, 관련 상식, 최신 뉴스, 강아지 용품 추천 등 강아지와 관련된 유용한 정보들을 제공합니다. 강아지와 관련된 유용한 정보들을 제공하여 사람들이 강아지를 한 생명체로 존중하며 책임감 있게 행동할 수 있는 세상을 만드는데 도움이 되는 것이 이 프로젝트의 목표입니다. 이곳에는 Pedia, Data, News, Supplies, Team 페이지가 있습니다."
+          description: "강아지의 종류 및 특징, 관련 상식, 최신 뉴스, 강아지 용품 추천 등<br> 강아지와 관련된 유용한 정보들을 제공합니다.<br> 사람들이 강아지를 한 생명체로 존중하며 책임감 있게 행동할 수 있는<br> 세상을 만드는데 도움이 되는 것이 이 프로젝트의 목표입니다.<br> 이곳에는 Pedia, Data, News, Supplies, Team 페이지가 있습니다."
       },
       {
           img: "/img/pediahome.jpg",
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
       {
           img: "/img/teamhome.jpg",
           title: "Team",
-          description: "팀 Bow Data와 그 팀원들에 대해 소개하는 페이지입니다. 팀 프로젝트에서 각 팀원들이 맡은 역할과 관련 정보들, 프로젝트 진행 흐름 등을 알 수 있습니다."
+          description: "팀 Bow Data와 그 팀원들에 대해 소개하는 페이지입니다.<br> 각 팀원들이 맡은 역할과 관련 정보들, 프로젝트 진행 흐름 등을 알 수 있습니다."
       }
   ];
 
@@ -71,9 +71,4 @@ document.addEventListener("DOMContentLoaded", function () {
   const mainSection = document.querySelector(".main .container");
   mainSection.innerHTML = "";
   mainSection.appendChild(slideContainer);
-
-  setInterval(() => {
-      currentIndex = (currentIndex + 1) % slides.length;
-      updateSlide(currentIndex);
-  }, 5000);
 });
