@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>시저 쇠고기 100g</title>
+    <title>강아지 샴푸</title>
     <link rel="stylesheet" href="help_style.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -99,21 +99,20 @@
     </header>
     <div class="main_container">
       <h1>
-        시저 쇠고기 100g <span class="badge bg-danger">Best</span>
-        <span class="badge bg-success"> NEW</span>
+        TS 써니 강아지 샴푸 베이비파우더향, 500g, 1Kg
+        <span class="badge bg-danger">Best</span>
       </h1>
       <div class="product-image">
         <img
           id="product-image"
-          src="img/강아지간식.jpg"
+          src="img/강아지샴푸.jpg"
           class="img-fluid rounded"
         />
       </div>
       <div class="description">
         <p>
-          아미노산, 비타민 등 40가지 필수 영양소 함유<br />
-          건사료 대비 1/4칼로리로 필요에 따라 체중 관리<br />
-          혼합, 단독 급여로도 좋은 균형 잡힌 주식 캔
+          안심하고 사용할 수 있는 민감한 우리아가 피부를 위한 선택
+          <span id="highlight" style="color: red"> 이젠 애견샴푸도 TS!</span>
         </p>
       </div>
       <div class="delivery">
@@ -121,29 +120,27 @@
         <p><strong>배송비:</strong> 무료 (30,000원 이상 무료배송)</p>
       </div>
       <div class="options">
-        <label for="number">갯수</label>
-        <select id="number" onchange="updatePrice_sizer()">
-          <option value="1">1개 (1,900원)</option>
-          <option value="5">5개 (9,215원 - 3% 할인)</option>
-          <option value="10">10개 (18,430원 - 3% 할인)</option>
-          <option value="15">15개 (27,645원 - 3% 할인)</option>
-          <option value="20">20개 (36,860원 - 3% 할인)</option>
+        <label for="number">용량</label>
+        <select id="number">
+          <option value="1">500g</option>
+          <option value="2">1KG</option>
         </select>
-        <label for="flavor">맛</label>
-        <select id="flavor">
-          <option value="쇠고기">쇠고기</option>
-          <option value="양고기">양고기</option>
-          <option value="닭고기">닭고기</option>
-          <option value="불고기">불고기</option>
+        <label for="sum">갯수</label>
+        <select id="sum" onchange="updatePrice_sampe()">
+          <option value="1">1개</option>
+          <option value="3">3개</option>
+          <option value="6">6개</option>
         </select>
       </div>
       <div class="total-price">
         <span>총 상품금액: </span>
-        <span class="price" id="total-price">1,900원</span>
+        <span class="price" id="total-price">19,000원</span>
       </div>
       <div class="buttons">
         <button class="buy-btn" onclick="buyNow()">구매하기</button>
-        <a href="cart.html" class="cart-btn" onclick="addToCart()">장바구니</a>
+        <a href="cart.html" class="cart-btn" onclick="addToCart_sampe()"
+          >장바구니</a
+        >
       </div>
     </div>
     <footer>
@@ -151,43 +148,40 @@
     </footer>
 
     <script>
-      function addToCart() {
+      function addToCart_sampe() {
         var number = document.getElementById('number').value
-        var flavor = document.getElementById('flavor').value
         var priceText = document.getElementById('total-price').textContent
         var price = parseInt(priceText.replace(/[^\d]/g, ''))
 
-        localStorage.setItem('selectedNumber', number)
-        localStorage.setItem('selectedFlavor', flavor)
-        localStorage.setItem('selectedPrice', price)
+        localStorage.setItem('Number_sampe', number)
+        localStorage.setItem('Price_sampe', price)
 
-        console.log(
-          '장바구니에 추가됨 - 갯수:',
-          number,
-          '맛:',
-          flavor,
-          '가격:',
-          price
-        )
+        console.log('장바구니에 추가됨 - 갯수:', number, '가격:', price)
         alert('장바구니에 상품이 추가되었습니다.')
       }
 
-      function updatePrice_sizer() {
+      function updatePrice_sampe() {
         var number = parseInt(document.getElementById('number').value)
-        var price = 1900 // 기본 가격
+        var sum = parseInt(document.getElementById('sum').value)
+        var price = 19000 // 기본 가격
+        var total
 
-        if (number === 5) {
-          price = 9215
-        } else if (number === 10) {
-          price = 18430
-        } else if (number === 15) {
-          price = 27645
-        } else if (number === 20) {
-          price = 36860
+        if (number === 1 || sum === 1) {
+          total = price * sum
+        } else if (number === 2 || sum === 1) {
+          total = price * 2 * sum
+        } else if (number === 1 || sum === 3) {
+          total = price * sum
+        } else if (number === 2 || sum === 3) {
+          total = price * 2 * sum
+        } else if (number === 1 || sum === 6) {
+          total = price * sum
+        } else if (number === 2 || sum === 6) {
+          total = price * 2 * sum
         }
 
         document.getElementById('total-price').textContent =
-          price.toLocaleString() + '원'
+          total.toLocaleString() + '원'
       }
     </script>
   </body>

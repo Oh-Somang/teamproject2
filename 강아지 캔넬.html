@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>시저 쇠고기 100g</title>
+    <title>강아지 캔넬</title>
     <link rel="stylesheet" href="help_style.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -98,22 +98,18 @@
       <hr style="margin-top: 0px" />
     </header>
     <div class="main_container">
-      <h1>
-        시저 쇠고기 100g <span class="badge bg-danger">Best</span>
-        <span class="badge bg-success"> NEW</span>
-      </h1>
+      <h1>시저 쇠고기 100g <span class="badge bg-danger">Best</span></h1>
       <div class="product-image">
         <img
           id="product-image"
-          src="img/강아지간식.jpg"
+          src="img/강아지캔넬.jpg"
           class="img-fluid rounded"
         />
       </div>
       <div class="description">
         <p>
-          아미노산, 비타민 등 40가지 필수 영양소 함유<br />
-          건사료 대비 1/4칼로리로 필요에 따라 체중 관리<br />
-          혼합, 단독 급여로도 좋은 균형 잡힌 주식 캔
+          릿첼 캠핑캐리 더블도어 애견 강아지 고양이 켄넬 이동가방 이동장 케이지
+          캐리어
         </p>
       </div>
       <div class="delivery">
@@ -121,29 +117,23 @@
         <p><strong>배송비:</strong> 무료 (30,000원 이상 무료배송)</p>
       </div>
       <div class="options">
-        <label for="number">갯수</label>
-        <select id="number" onchange="updatePrice_sizer()">
-          <option value="1">1개 (1,900원)</option>
-          <option value="5">5개 (9,215원 - 3% 할인)</option>
-          <option value="10">10개 (18,430원 - 3% 할인)</option>
-          <option value="15">15개 (27,645원 - 3% 할인)</option>
-          <option value="20">20개 (36,860원 - 3% 할인)</option>
-        </select>
-        <label for="flavor">맛</label>
-        <select id="flavor">
-          <option value="쇠고기">쇠고기</option>
-          <option value="양고기">양고기</option>
-          <option value="닭고기">닭고기</option>
-          <option value="불고기">불고기</option>
+        <label for="number">크기</label>
+        <select id="number" onchange="updatePrice_canel()">
+          <option value="1">S사이즈 - 82,700</option>
+          <option value="2">M사이즈 - 90,000</option>
+          <option value="3">L사이즈 - 95,000</option>
+          <option value="4">XL사이즈 - 100,000</option>
         </select>
       </div>
       <div class="total-price">
         <span>총 상품금액: </span>
-        <span class="price" id="total-price">1,900원</span>
+        <span class="price" id="total-price">82,700원</span>
       </div>
       <div class="buttons">
         <button class="buy-btn" onclick="buyNow()">구매하기</button>
-        <a href="cart.html" class="cart-btn" onclick="addToCart()">장바구니</a>
+        <a href="cart.html" class="cart-btn" onclick="addToCart_canel()"
+          >장바구니</a
+        >
       </div>
     </div>
     <footer>
@@ -151,39 +141,30 @@
     </footer>
 
     <script>
-      function addToCart() {
+      function addToCart_canel() {
         var number = document.getElementById('number').value
-        var flavor = document.getElementById('flavor').value
         var priceText = document.getElementById('total-price').textContent
         var price = parseInt(priceText.replace(/[^\d]/g, ''))
 
-        localStorage.setItem('selectedNumber', number)
-        localStorage.setItem('selectedFlavor', flavor)
-        localStorage.setItem('selectedPrice', price)
+        localStorage.setItem('Number_canel', number)
+        localStorage.setItem('Price_canel', price)
 
-        console.log(
-          '장바구니에 추가됨 - 갯수:',
-          number,
-          '맛:',
-          flavor,
-          '가격:',
-          price
-        )
+        console.log('장바구니에 추가됨 - 갯수:', number, '가격:', price)
         alert('장바구니에 상품이 추가되었습니다.')
       }
 
-      function updatePrice_sizer() {
+      function updatePrice_canel() {
         var number = parseInt(document.getElementById('number').value)
-        var price = 1900 // 기본 가격
+        var price = 82700 // 기본 가격
 
-        if (number === 5) {
-          price = 9215
-        } else if (number === 10) {
-          price = 18430
-        } else if (number === 15) {
-          price = 27645
-        } else if (number === 20) {
-          price = 36860
+        if (number === 1) {
+          price = 82700
+        } else if (number === 2) {
+          price = 90000
+        } else if (number === 3) {
+          price = 95000
+        } else if (number === 4) {
+          price = 100000
         }
 
         document.getElementById('total-price').textContent =
