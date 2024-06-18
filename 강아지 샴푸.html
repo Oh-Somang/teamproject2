@@ -183,6 +183,19 @@
         document.getElementById('total-price').textContent =
           total.toLocaleString() + '원'
       }
+
+      function buyNow() {
+        var number = document.getElementById('number').value
+        var priceText = document.getElementById('total-price').textContent
+        var price = parseInt(priceText.replace(/[^\d]/g, ''))
+
+        localStorage.setItem('Number_sampe', number)
+        localStorage.setItem('Price_sampe', price)
+
+        alert(
+          '구매가 완료되었습니다. 총 금액: ' + price.toLocaleString() + '원'
+        )
+      }
     </script>
   </body>
 </html>

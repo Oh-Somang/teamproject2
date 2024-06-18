@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>강아지 캔넬</title>
     <link rel="stylesheet" href="help_style.css" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -169,6 +168,19 @@
 
         document.getElementById('total-price').textContent =
           price.toLocaleString() + '원'
+      }
+
+      function buyNow() {
+        var number = document.getElementById('number').value
+        var priceText = document.getElementById('total-price').textContent
+        var price = parseInt(priceText.replace(/[^\d]/g, ''))
+
+        localStorage.setItem('Number_canel', number)
+        localStorage.setItem('Price_canel', price)
+
+        alert(
+          '구매가 완료되었습니다. 총 금액: ' + price.toLocaleString() + '원'
+        )
       }
     </script>
   </body>
